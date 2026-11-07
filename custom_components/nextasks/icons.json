@@ -1,0 +1,15 @@
+{
+  "entity": {
+    "sensor": {
+      "overdue": { "default": "mdi:clipboard-alert-outline" },
+      "today": { "default": "mdi:calendar-today" },
+      "upcoming": { "default": "mdi:calendar-week" },
+      "assigned_to_me": { "default": "mdi:account-check-outline" },
+      "flagged": { "default": "mdi:bookmark-outline" },
+      "open": { "default": "mdi:checkbox-blank-outline" }
+    }
+  },
+  "services": {
+    "create_task": { "service": "mdi:checkbox-marked-circle-plus-outline" }
+  }
+}

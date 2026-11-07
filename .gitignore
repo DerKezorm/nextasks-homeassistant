@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+CLAUDE.md
+.claude/
+
+# The words the personal-data guard refuses. They would themselves be what it
+# keeps out.
+tests/.personal-words

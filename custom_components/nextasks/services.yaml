@@ -1,0 +1,43 @@
+create_task:
+  fields:
+    list:
+      required: true
+      selector:
+        entity:
+          integration: nextasks
+          domain: todo
+    title:
+      required: true
+      example: "Take the bins out"
+      selector:
+        text:
+    notes:
+      selector:
+        text:
+          multiline: true
+    due_date:
+      selector:
+        date:
+    due_time:
+      selector:
+        time:
+    priority:
+      selector:
+        select:
+          translation_key: priority
+          options:
+            - none
+            - low
+            - medium
+            - high
+    flagged:
+      selector:
+        boolean:
+    tags:
+      selector:
+        text:
+          multiple: true
+    url:
+      selector:
+        text:
+          type: url

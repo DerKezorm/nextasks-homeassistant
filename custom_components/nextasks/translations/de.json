@@ -1,0 +1,153 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "nextasks verbinden",
+        "description": "Lege in nextasks unter Mein Konto → Verbindungen einen Schlüssel an. Wähle die Bereiche, die Home Assistant sehen darf, und „Lesen und schreiben“, wenn die Listen hier bearbeitbar sein sollen.",
+        "data": {
+          "url": "Adresse",
+          "token": "Schlüssel"
+        },
+        "data_description": {
+          "url": "Die Adresse, mit der du nextasks öffnest, etwa https://tasks.example.com.",
+          "token": "Beginnt mit ntk_. nextasks zeigt ihn nur einmal."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Neuer Schlüssel für {title}",
+        "description": "Der Schlüssel für {url} funktioniert nicht mehr: abgelaufen, gesperrt oder gelöscht. Lege unter Mein Konto → Verbindungen einen neuen für dasselbe Konto an.",
+        "data": {
+          "token": "Schlüssel"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "nextasks kennt diesen Schlüssel nicht, oder er ist abgelaufen.",
+      "api_off": "API-Schlüssel sind auf diesem Server ausgeschaltet. Der Betreiber schaltet sie unter Einstellungen → Server → API ein.",
+      "cannot_connect": "nextasks ist unter dieser Adresse nicht erreichbar.",
+      "unknown": "nextasks hat unerwartet geantwortet."
+    },
+    "abort": {
+      "already_configured": "Ein Schlüssel für dasselbe Konto und dieselben Bereiche ist schon eingerichtet.",
+      "reauth_successful": "Der neue Schlüssel funktioniert.",
+      "wrong_account": "Dieser Schlüssel gehört zu einem anderen Konto. Lege einen für das Konto an, mit dem diese Verbindung eingerichtet wurde."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Listen und erledigte Aufgaben",
+        "data": {
+          "shown_lists": "Listen in Home Assistant",
+          "completed_days": "Tage, die erledigte Aufgaben bleiben"
+        },
+        "data_description": {
+          "shown_lists": "Listen aus Bereichen, die du in nextasks ausgeblendet hast, stehen hier nicht zur Wahl. Neue Listen erscheinen von selbst.",
+          "completed_days": "0 zeigt keine erledigten Aufgaben. Wer in Home Assistant erledigte Aufgaben entfernt, legt sie in den Papierkorb von nextasks."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "overdue": {
+        "name": "Überfällig"
+      },
+      "today": {
+        "name": "Heute"
+      },
+      "upcoming": {
+        "name": "Demnächst"
+      },
+      "assigned_to_me": {
+        "name": "Mir zugewiesen"
+      },
+      "flagged": {
+        "name": "Mit Lesezeichen"
+      },
+      "open": {
+        "name": "Offen"
+      }
+    }
+  },
+  "exceptions": {
+    "token_invalid": {
+      "message": "Der nextasks-Schlüssel funktioniert nicht mehr. Bitte einen neuen eingeben."
+    },
+    "api_off": {
+      "message": "API-Schlüssel sind auf dem nextasks-Server ausgeschaltet."
+    },
+    "cannot_connect": {
+      "message": "nextasks ist nicht erreichbar: {error}"
+    },
+    "refused": {
+      "message": "nextasks hat die Änderung abgelehnt: {error}"
+    },
+    "task_not_found": {
+      "message": "Diese Aufgabe steht nicht mehr in der Liste."
+    },
+    "not_a_list": {
+      "message": "{entity_id} ist keine nextasks-Liste."
+    },
+    "not_loaded": {
+      "message": "Diese nextasks-Verbindung ist nicht geladen."
+    },
+    "time_without_date": {
+      "message": "Eine Uhrzeit braucht ein Datum."
+    }
+  },
+  "selector": {
+    "priority": {
+      "options": {
+        "none": "Keine",
+        "low": "Niedrig",
+        "medium": "Mittel",
+        "high": "Hoch"
+      }
+    }
+  },
+  "services": {
+    "create_task": {
+      "name": "Aufgabe anlegen",
+      "description": "Legt eine Aufgabe in einer nextasks-Liste an, mit den Angaben, die eine Aufgabenliste nicht kennt.",
+      "fields": {
+        "list": {
+          "name": "Liste",
+          "description": "Die nextasks-Liste, in die die Aufgabe kommt."
+        },
+        "title": {
+          "name": "Titel",
+          "description": "Was zu tun ist."
+        },
+        "notes": {
+          "name": "Notiz",
+          "description": "Markdown, wie in nextasks."
+        },
+        "due_date": {
+          "name": "Fällig am",
+          "description": "Der Tag, an dem sie fällig ist."
+        },
+        "due_time": {
+          "name": "Uhrzeit",
+          "description": "Die Uhrzeit, in der Zeitzone des Kontos. Braucht ein Datum."
+        },
+        "priority": {
+          "name": "Priorität",
+          "description": "Keine, niedrig, mittel oder hoch."
+        },
+        "flagged": {
+          "name": "Lesezeichen",
+          "description": "Markiert die Aufgabe mit einem Lesezeichen."
+        },
+        "tags": {
+          "name": "Schlagworte",
+          "description": "Wörter, über die man die Aufgabe findet."
+        },
+        "url": {
+          "name": "Link",
+          "description": "Eine Webadresse, die zur Aufgabe gehört."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect nextasks",
+        "description": "Make a token in nextasks under My account → Connections. Pick the spaces Home Assistant may see, and \"Read and write\" if lists should be editable here.",
+        "data": {
+          "url": "Address",
+          "token": "Token"
+        },
+        "data_description": {
+          "url": "The address you open nextasks with, such as https://tasks.example.com.",
+          "token": "Starts with ntk_. nextasks shows it only once."
+        }
+      },
+      "reauth_confirm": {
+        "title": "New token for {title}",
+        "description": "The token for {url} no longer works: it ran out, or it was blocked or deleted. Make a new one for the same account under My account → Connections.",
+        "data": {
+          "token": "Token"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "nextasks does not know this token, or it ran out.",
+      "api_off": "API tokens are switched off on this server. The operator switches them on under Settings → Server → API.",
+      "cannot_connect": "nextasks cannot be reached at this address.",
+      "unknown": "nextasks gave an answer that was not expected."
+    },
+    "abort": {
+      "already_configured": "A token for the same account and the same spaces is already set up.",
+      "reauth_successful": "The new token works.",
+      "wrong_account": "This token belongs to another account. Make one for the account this connection was set up with."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Lists and completed tasks",
+        "data": {
+          "shown_lists": "Lists shown in Home Assistant",
+          "completed_days": "Days completed tasks stay"
+        },
+        "data_description": {
+          "shown_lists": "Lists of spaces you hid in nextasks are not offered. New lists show up on their own.",
+          "completed_days": "0 shows no completed tasks. Removing completed tasks in Home Assistant moves them to the nextasks trash."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "overdue": {
+        "name": "Overdue"
+      },
+      "today": {
+        "name": "Today"
+      },
+      "upcoming": {
+        "name": "Upcoming"
+      },
+      "assigned_to_me": {
+        "name": "Assigned to me"
+      },
+      "flagged": {
+        "name": "Bookmarked"
+      },
+      "open": {
+        "name": "Open"
+      }
+    }
+  },
+  "exceptions": {
+    "token_invalid": {
+      "message": "The nextasks token no longer works. Enter a new one."
+    },
+    "api_off": {
+      "message": "API tokens are switched off on the nextasks server."
+    },
+    "cannot_connect": {
+      "message": "nextasks cannot be reached: {error}"
+    },
+    "refused": {
+      "message": "nextasks refused the change: {error}"
+    },
+    "task_not_found": {
+      "message": "This task is no longer in the list."
+    },
+    "not_a_list": {
+      "message": "{entity_id} is not a nextasks list."
+    },
+    "not_loaded": {
+      "message": "This nextasks connection is not loaded."
+    },
+    "time_without_date": {
+      "message": "A time needs a date."
+    }
+  },
+  "selector": {
+    "priority": {
+      "options": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      }
+    }
+  },
+  "services": {
+    "create_task": {
+      "name": "Create task",
+      "description": "Creates a task in a nextasks list, with the details a to-do list cannot carry.",
+      "fields": {
+        "list": {
+          "name": "List",
+          "description": "The nextasks list the task goes to."
+        },
+        "title": {
+          "name": "Title",
+          "description": "What is to be done."
+        },
+        "notes": {
+          "name": "Notes",
+          "description": "Markdown, as in nextasks."
+        },
+        "due_date": {
+          "name": "Due date",
+          "description": "The day it is due."
+        },
+        "due_time": {
+          "name": "Due time",
+          "description": "The time of day, in the account's time zone. Needs a due date."
+        },
+        "priority": {
+          "name": "Priority",
+          "description": "None, low, medium or high."
+        },
+        "flagged": {
+          "name": "Bookmark",
+          "description": "Marks the task with a bookmark."
+        },
+        "tags": {
+          "name": "Tags",
+          "description": "Words to find the task by."
+        },
+        "url": {
+          "name": "Link",
+          "description": "A web address that belongs to the task."
+        }
+      }
+    }
+  }
+}
