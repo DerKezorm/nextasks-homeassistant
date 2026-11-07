@@ -9,7 +9,7 @@
           "token": "Schlüssel"
         },
         "data_description": {
-          "url": "Die Adresse, mit der du nextasks öffnest, etwa https://tasks.example.com.",
+          "url": "Die Adresse, mit der du nextasks im Browser öffnest, ohne Pfad.",
           "token": "Beginnt mit ntk_. nextasks zeigt ihn nur einmal."
         }
       },
